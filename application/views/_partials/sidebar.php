@@ -41,10 +41,10 @@
                   <p>Table Barang</p>
                 </a>
               </li>
-              <?php if($this->session->userdata('jabatan')== 'eksekutif'): ?>
+              <?php if($this->session->userdata('jabatan')!='pegawai'): ?>
               <li class="nav-item">
                 <a href="<?php echo site_url('transaksi/grafiktransaksi')?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-chart-bar nav-icon"></i>
                   <p>Grafik Transaksi</p>
                 </a>
               </li>
@@ -75,6 +75,12 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+                <a href="<?php echo site_url('login/logout')?>" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
         </ul>
       </nav>
   </aside>

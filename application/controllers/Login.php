@@ -18,7 +18,12 @@ class Login extends CI_Controller {
     {
         // jika form login disubmit
         if($this->input->post()){
-            if($this->User_model->doLogin()) redirect(base_url('transaksi'));
+            if($this->User_model->doLogin()) 
+            echo "<script>
+                    alert('Selamat Datang !');
+                    window.location.href='transaksi';
+                    </script>";
+           // redirect(base_url('transaksi'));
         }
         // tampilkan halaman login
         $this->load->view("login");
@@ -26,9 +31,13 @@ class Login extends CI_Controller {
 
     public function logout()
     {
-        // hancurkan semua sesi
         $this->session->sess_destroy();
-        redirect(site_url('login'));
+        // hancurkan semua sesi
+        echo "<script>
+        alert('Terimakasih !');
+        window.location.href='index';
+        </script>";
+    
     }
 
 }

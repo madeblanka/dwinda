@@ -45,7 +45,7 @@
                     <label for="exampleFormControlSelect1">Jabatan</label>
                     <select class="form-control" name="jabatan" id="exampleFormControlSelect1">
                       <option value="pegawai">Pegawai</option>
-                      <option value="atasan">Atasan</option>
+                      <option value="atasan">Eksekutif</option>
                     </select>
                   </div>
                   <button type="submit" class="btn btn-outline-success" onclick="return confirm('Apakah Anda Yakin Ingin Menyimpan Data Ini ?');">Simpan</button>
