@@ -47,16 +47,18 @@ class Barang_model extends CI_Model
     {
         $post = $this->input->post();
         $this->idbarang = $post["idbarang"];
+        $this->idkategori = $post["idkategori"];
         $this->nama = $post["nama"];
         $this->harga = $post["harga"];
         $this->hargabeli =$post["hargabeli"];
         return $this->db->insert($this->_table, $this);
     }
 
-    public function update($idbarang,$nama,$harga,$hargabeli)
+    public function update($idbarang,$idkategori,$nama,$harga,$hargabeli)
     {
         $post = $this->input->post();
         $this->idbarang = $post["idbarang"];
+        $this->idkategori = $post["idkategori"];
         $this->nama = $post["nama"];
         $this->harga = $post["harga"];
         $this->hargabeli =$post["hargabeli"];

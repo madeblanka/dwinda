@@ -23,6 +23,7 @@
                   <thead>
                     <tr>
                       <th>ID Barang</th>
+                      <th>ID Kategori</th>
                       <th>Nama</th>
                       <th>Harga Jual</th>
                       <th>Harga Beli</th>
@@ -33,6 +34,7 @@
                   <tbody id="myTable">
                       <tr>
                           <td><?php echo $barang->idbarang?></td>
+                          <td><?php echo $barang->idkategori?></td>
                           <td><?php echo $barang->nama?></td>
                           <td><?php echo $barang->harga?></td>
                           <td><?php echo $barang->hargabeli?></td>

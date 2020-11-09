@@ -6,6 +6,7 @@ class Barang extends CI_Controller {
     function __construct() {
         parent::__construct(); 
         $this->load->model('Barang_model');
+        $this->load->model('Kategori_model'); 
 		$this->load->library('form_validation');
 	}
     private $_table = "tb_barang";
@@ -29,7 +30,8 @@ class Barang extends CI_Controller {
     }
     public function tambah()
     {
-        $this->load->view('barang/tambah');
+        $data['kategori'] = $this->Kategori_model->getAll();
+        $this->load->view('barang/tambah',$data);
     }
     public function edit($idbarang = null)
     {

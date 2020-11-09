@@ -5,7 +5,9 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Edit Barang</h3>
+              <h3 class="card-title">Tabel Kategori 
+                <a href="<?php echo site_url('kategori/tambah/') ?>"
+                href="#!"  class="btn btn-outline-success"><strong>Tambah</strong></a></h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" id="myInput" class="form-control float-right" placeholder="Search">
@@ -19,27 +21,27 @@
               <div class="card-body table-responsive p-0">
                 <table id="myTable" class="table table-hover text-nowrap">
                   <thead>
-                  <form action="<?php echo site_url('barang/update') ?>" method="post" enctype="multipart/form-data" >
                     <tr>
-                      <th>ID barang</th>
                       <th>ID Kategori</th>
-                      <th>Nama</th>
-                      <th>Harga Jual</th>
-                      <th>Harga Beli</th>
+                      <th>Kategori</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
-                  <?php foreach ($barang as $barang): ?>
+                  <?php foreach ($kategori as $kategori): ?>
                   <tbody id="myTable">
                       <tr>
-                          <td><input type="text" name="idbarang" value="<?php echo $barang->idbarang?>" readonly ></td>
-                          <td><input type="number" name="idkategori" value="<?php echo $barang->idkategori?>" ></td>
-                          <td><input type="text" name="nama" value="<?php echo $barang->nama?>" required></td>
-                          <td><input type="number" name="harga" value="<?php echo $barang->harga?>"  required></td>
-                          <td><input type="number" name="harga" value="<?php echo $barang->hargabeli?>"  required></td>
+                          <td><?php echo $kategori->idkategori?></td>
+                          <td><?php echo $kategori->kategori?></td>
+                          <td> 
+                          <a href="<?php echo site_url('kategori/edit/'.$kategori->idkategori) ?>"
+                           href="#!" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+
+                           <a href="<?php echo site_url('kategori/delete/'.$kategori->idkategori) ?>"
+                           onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+
                           </td>
-                          <?php endforeach?>
                       </tr>
-                      <tr> <th> <button type="submit" class="btn btn-outline-success" onclick="return confirm('Apakah Anda Yakin Ingin Menyimpan Data Ini ?');">Simpan</button></th></tr>
+                <?php endforeach?>
                 </tbody>
                 </table>
               </div>

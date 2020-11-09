@@ -41,6 +41,12 @@
                   <p>Table Barang</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('kategori/index')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Kategori</p>
+                </a>
+              </li>
               <?php if($this->session->userdata('jabatan')!='pegawai'): ?>
               <li class="nav-item">
                 <a href="<?php echo site_url('transaksi/grafiktransaksi')?>" class="nav-link">

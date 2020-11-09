@@ -34,6 +34,16 @@
                     <input type="number" class="form-control" name="idbarang" id="exampleFormControlInput1" placeholder="00000" required>
                   </div>
                   <div class="form-group">
+								  <label for="name">Id Kategori</label>
+								    <select name="idkategori">
+									 <optgroup class="form-control" label="(empty)">
+                     <?php foreach ($kategori as $kategori):?>
+                     <option value="<?php echo $kategori->idkategori?>"><?php echo $kategori->kategori?> </option>
+                     <?php endforeach?>
+									 </optgroup>
+                   </select>
+                   </div>
+                  <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Barang</label>
                     <input type="text" class="form-control" name="nama" id="exampleFormControlInput1" placeholder="*****" required>
                   </div>
