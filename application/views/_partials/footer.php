@@ -10,6 +10,19 @@
 
 <!-- REQUIRED SCRIPTS -->
 
+<script src="<?php echo base_url('admin/plugins/jquery-ui/jquery-ui.min.js')?>"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Sparkline -->
+<script src="<?php echo base_url('admin/plugins/sparklines/sparkline.js')?>"></script>
+<!-- jQuery Knob Chart -->
+<script src="<?php echo base_url('admin/plugins/jquery-knob/jquery.knob.min.js')?>"></script>
+<!-- Summernote -->
+<script src="<?php echo base_url('admin/plugins/summernote/summernote-bs4.min.js')?>"></script>
+<!-- overlayScrollbars -->
+<script src="<?php echo base_url('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')?>"></script>
+
 <!-- jQuery -->
 <script src="<?php echo base_url('admin/plugins/jquery/jquery.min.js')?>"></script>
 <!-- Bootstrap -->

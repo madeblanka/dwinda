@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <title>Sistem Informasi Eksekutif</title>
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')?>">
   

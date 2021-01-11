@@ -14,12 +14,31 @@ class Transaksi extends CI_Controller {
 
     public $idtransaksi;
     public $tanggal;
-    public $jumlah;
+	public $jumlah;
+	public $laba;
 
 	public function index()
 	{
 		$data['transaksi'] = $this->Transaksi_model->getAll();
 		$this->load->view('dashboard',$data);
+	}
+	public function eksekutif()
+	{
+		$data['transaksi'] = $this->Transaksi_model->getAll();
+		$data['grafiktransaksi'] = $this->Transaksi_model->carigrafik2();
+        $data['totaltransaksi'] = $this->Transaksi_model->totaltransaksi();
+		$data['totallaba'] = $this->Transaksi_model->totallaba();
+		$data['totalkategori'] = $this->Transaksi_model->totalkategori();
+		$data['totaluser'] = $this->Transaksi_model->totaluser();
+		$data['hitungtotaltransaksi'] = $this->Transaksi_model->hitungtotaltransaksi();
+		$this->load->view('dashboardeksekutif',$data);
+	}
+	public function print($idtransaksi)
+	{
+		$data['detail'] = $this->Detail_model->getByidtransaksi($idtransaksi);
+		$data['alltransaksi'] = $this->Transaksi_model->getidtransaksi($idtransaksi);
+		$data['transaksi'] = $this->Transaksi_model->getidtransaksi($idtransaksi);
+		$this->load->view('print/transaksi',$data);
 	}
 	public function grafiktransaksi()
 	{
@@ -27,7 +46,8 @@ class Transaksi extends CI_Controller {
 	}
 	public function grafiklaba()
 	{
-		$this->load->view('grafik/transaksi');
+		$data['laba'] = $this->Transaksi_model->carigrafik2();
+		$this->load->view('grafik/laba',$data);
 	}
 	public function tambah()
 	{
@@ -106,8 +126,8 @@ class Transaksi extends CI_Controller {
 		$jumlahakhir = array_sum($total);
 		$totalbeliakhir = array_sum($totalbeli);
 		$laba = $jumlahakhir - $totalbeliakhir ;
-		$this->Detail_model->update($idtransaksi,$idbarang,$nama,$jumlah,$satuan,$total);
-		$this->Transaksi_model->update($jumlahakhir);
+		$this->Detail_model->update($idtransaksi,$idbarang,$nama,$jumlah,$satuan,$total,$hargabeli,$totalbeli);
+		$this->Transaksi_model->update($jumlahakhir,$laba);
         redirect('transaksi/index');
     }
 }

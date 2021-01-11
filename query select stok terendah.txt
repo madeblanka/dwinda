@@ -1,0 +1,1 @@
+SELECT iddetail FROM `tb_detail` ORDER BY iddetail DESC

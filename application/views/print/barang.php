@@ -5,12 +5,8 @@
   <meta charset="UTF-8">
   <title>Print Barang</title>
       <link rel="stylesheet" href="<?php echo base_url() ?>admin/style.css"/>
-
-
 </head>
-
 <body>
-
   <div class="caption">Data Barang</div>
 <div id="table">
 	<div class="header-row row">

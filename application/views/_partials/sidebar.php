@@ -36,6 +36,13 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="<?php echo site_url('kategori/penjualan')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Penjualan</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="<?php echo site_url('barang/index')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Table Barang</p>
@@ -47,11 +54,17 @@
                   <p>Table Kategori</p>
                 </a>
               </li>
-              <?php if($this->session->userdata('jabatan')!='pegawai'): ?>
+              <?php if($this->session->userdata('role') !="pegawai"): ?>
               <li class="nav-item">
                 <a href="<?php echo site_url('transaksi/grafiktransaksi')?>" class="nav-link">
                   <i class="fas fa-chart-bar nav-icon"></i>
                   <p>Grafik Transaksi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('transaksi/grafiklaba')?>" class="nav-link">
+                  <i class="fas fa-chart-bar nav-icon"></i>
+                  <p>Grafik Laba</p>
                 </a>
               </li>
               <?php endif ?>

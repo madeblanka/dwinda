@@ -20,5 +20,13 @@ class Detail extends CI_Controller {
 	{
         $data['detail'] = $this->Detail_model->getByidtransaksi($idtransaksi);
 		$this->load->view('detailtransaksi',$data);
-	}
+    }
+    public function delete($iddetail=null)
+    {
+        if (!isset($iddetail)) show_404();
+        
+        if ($this->Detail_model->delete($iddetail)) {
+            redirect(site_url('transaksi/index'));
+        }
+    }
 }

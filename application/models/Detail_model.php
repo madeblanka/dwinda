@@ -20,7 +20,17 @@ class Detail_model extends CI_Model
     {
         return $this->db->get_where($this->_table, ["idtransaksi" => $idtransaksi])->result();
     }
-
+    public function penjualan($idbarang,$tanggal)
+    {
+        $a = $this->Transaksi_model->caritanggal($tanggal);
+        
+        $this->db->where_in('idtransaksi',$a[0]);
+        $this->db->where('idbarang', $idbarang);
+        $s = $this->db->get('tb_detail')->num_rows();
+        return $s;
+        // $b = $this->db->query('select * from tb_detail where idtransaksi = '.$a.' and idbarang = '.$idbarang);
+        // return $b->num_rows();
+    }
     public function save()
     {
         $post = $this->input->post();
@@ -53,9 +63,9 @@ class Detail_model extends CI_Model
         return $this->db->update($this->_table, $this, array('idtransaksi' => $post['idtransaksi']));
     }
 
-    public function delete($idtransaksi)
+    public function delete($iddetail)
     {
-        return $this->db->delete($this->_table, array("idtransaksi" => $idtransaksi));
+        return $this->db->delete($this->_table, array("iddetail" => $iddetail));
     }
 
     function create_transaksi($idtransaksi,$idbarang,$nama,$jumlah,$satuan,$total,$hargabeli,$totalbeli){

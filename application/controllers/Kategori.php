@@ -6,6 +6,8 @@ class Kategori extends CI_Controller {
     function __construct() {
         parent::__construct(); 
         $this->load->model('Kategori_model');
+        $this->load->model('Detail_model');
+        $this->load->model('Transaksi_model');
 		$this->load->library('form_validation');
 	}
     private $_table = "tb_kategori";
@@ -35,7 +37,20 @@ class Kategori extends CI_Controller {
         $data["kategori"] = $kategori->getByidkategori($idkategori);
         $this->load->view("kategori/edit", $data);
     }
-
+    public function penjualan()
+	{
+        $data['kategori'] = $this->Kategori_model->getAll();
+		$this->load->view('penjualan/index',$data);
+    }
+    public function hasilpenjualan()
+    {
+        $idkategori = $_POST["idkategori"];
+        $tanggal = $_POST["tanggal"];
+        
+        $data["kategori"] = $this->Kategori_model->getByidkategori($idkategori);
+        $data['detail'] = $this->Detail_model->penjualan($idkategori,$tanggal);
+		$this->load->view('penjualan/hasil',$data);
+    }
     public function delete($idkategori  = null)
     {
         if (!isset($idkategori)) show_404();

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
     function __construct() {
-        parent::__construct(); 
+        parent::__construct();
         $this->load->model('User_model');
 	}
     private $_table = "tb_user";
@@ -18,13 +18,18 @@ class Login extends CI_Controller {
     {
         // jika form login disubmit
         if($this->input->post()){
-            if($this->User_model->doLogin()) 
+            if($this->User_model->doLogin())
+            {
+                    echo "<script>
+                            alert('Selamat Datang !');
+                            window.location.href='transaksi';
+                            </script>";
+        }else{
             echo "<script>
-                    alert('Selamat Datang !');
-                    window.location.href='transaksi';
+                    alert('Username atau Password yang anda masukan Salah!');
+                    window.location.href='login/index';
                     </script>";
-           // redirect(base_url('transaksi'));
-        }
+        }}
         // tampilkan halaman login
         $this->load->view("login");
     }
@@ -37,7 +42,7 @@ class Login extends CI_Controller {
         alert('Terimakasih !');
         window.location.href='index';
         </script>";
-    
+
     }
 
 }

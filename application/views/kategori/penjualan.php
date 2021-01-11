@@ -5,8 +5,9 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
-
+              <h3 class="card-title">Tabel Kategori 
+                <a href="<?php echo site_url('kategori/tambah/') ?>"
+                href="#!"  class="btn btn-outline-success"><strong>Tambah</strong></a></h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" id="myInput" class="form-control float-right" placeholder="Search">
@@ -21,30 +22,23 @@
                 <table id="myTable" class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID Transaksi</th>
-                      <th>ID Barang</th>
-                      <th>Nama</th>
-                      <th>Jumlah</th>
-                      <th>Harga Satuan</th>
-                      <th>Harga Beli</th>
-                      <th>Total Harga Beli</th>
-                      <th>Total Jual</th>
+                      <th>ID Kategori</th>
+                      <th>Kategori</th>
+                      <th>Terjual</th>
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <?php foreach ($detail as $detail): ?>
+                  <?php foreach ($kategori as $kategori): ?>
                   <tbody id="myTable">
                       <tr>
-                          <td><?php echo $detail->idtransaksi?></td>
-                          <td><?php echo $detail->idbarang?></td>
-                          <td><?php echo $detail->nama?></td>
-                          <td><?php echo $detail->jumlah?></td>
-                          <td><?php echo $detail->satuan?></td>
-                          <td><?php echo $detail->hargabeli?></td>
-                          <td><?php echo $detail->totalbeli?></td>
-                          <td><?php echo $detail->total?></td>
+                          <td><?php echo $kategori->idkategori?></td>
+                          <td><?php echo $kategori->kategori?></td>
+                          <td> <?= $this->Detail_model->penjualan($kategori->idkategori);?></td>
                           <td> 
-                           <a href="<?php echo site_url('detail/delete/'.$detail->idtransaksi) ?>"
+                          <a href="<?php echo site_url('kategori/edit/'.$kategori->idkategori) ?>"
+                           href="#!" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>
+
+                           <a href="<?php echo site_url('kategori/delete/'.$kategori->idkategori) ?>"
                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 
                           </td>

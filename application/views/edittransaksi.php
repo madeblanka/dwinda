@@ -28,18 +28,22 @@
                       <th>Jumlah</th>
                       <th>Satuan</th>
                       <th>Total</th>
+                      <th>Harga Beli</th>
+                      <th>Total Beli</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <?php foreach ($detail as $detail): ?>
                   <tbody id="myTable">
                       <tr>
-                          <td><input type="text" name="idtransaksi" value="<?php echo $detail->idtransaksi?>" readonly></td>
-                          <td><input type="text" name="idbarang" value="<?php echo $detail->idbarang?>" readonly></td>
-                          <td><input type="text" name="nama" value="<?php echo $detail->nama?>" readonly></td>
+                          <td><input type="text" name="idtransaksi[]" value="<?php echo $detail->idtransaksi?>" readonly></td>
+                          <td><input type="text" name="idbarang[]" value="<?php echo $detail->idbarang?>" readonly></td>
+                          <td><input type="text" name="nama[]" value="<?php echo $detail->nama?>" readonly></td>
                           <td><input type="number" value="<?php echo $detail->jumlah?>" name="jumlah" ></td>
-                          <td><input type="text" name="satuan" value="<?php echo $detail->satuan?>" readonly></td>
+                          <td><input type="text" name="satuan[]" value="<?php echo $detail->satuan?>" readonly></td>
                           <td><input type="text" name="total[]" value="<?php echo $detail->total?>" readonly></td>
+                          <td><input type="text" name="hargabeli[]" value="<?php echo $detail->hargabeli?>" readonly></td>
+                          <td><input type="text" name="totalbeli[]" value="<?php echo $detail->totalbeli?>" readonly></td>
                           <td> 
                            <a href="<?php echo site_url('detail/delete/'.$detail->idtransaksi) ?>"
                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ?');" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

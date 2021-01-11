@@ -24,9 +24,19 @@ class Barang extends CI_Controller {
     }
     public function add()
     {
-        $barang = $this->Barang_model;
-            $barang->save();
-            redirect(site_url('barang/index'));
+        if($this->Barang_model->save())
+        {
+            echo "<script>
+            alert('Simpan Berhasil !');
+            window.location.href='index';
+            </script>";
+        }else{
+            echo "<script>
+            alert('Simpan Gagal !');
+            window.location.href='add';
+            </script>";
+        }
+        
     }
     public function tambah()
     {
@@ -48,10 +58,12 @@ class Barang extends CI_Controller {
         }
     }
     public function update(){
-		$idbarang = $this->input->post('idbarang',TRUE);
+        $idbarang = $this->input->post('idbarang',TRUE);
+        $idkategori = $this->input->post('idkategori',TRUE);
 		$nama = $this->input->post('nama',TRUE);
-		$harga = $this->input->post('harga',TRUE);
-		$this->Barang_model->update($idbarang,$nama,$harga);
+        $harga = $this->input->post('harga',TRUE);
+        $hargabeli = $this->input->post('hargabeli',TRUE);
+		$this->Barang_model->update($idbarang,$idkategori,$nama,$harga,$hargabeli);
         redirect(site_url('barang/index'));
     }
 }
