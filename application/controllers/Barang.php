@@ -40,7 +40,7 @@ class Barang extends CI_Controller {
     }
     public function tambah()
     {
-        $data['kategori'] = $this->Kategori_model->getAll();
+        $data['kategori'] = $this->Kategori_model->getaktif();
         $this->load->view('barang/tambah',$data);
     }
     public function edit($idbarang = null)

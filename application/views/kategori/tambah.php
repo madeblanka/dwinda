@@ -35,8 +35,15 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleFormControlInput1">Nama kategori</label>
-                    <input type="text" class="form-control" name="kategori" id="exampleFormControlInput1" placeholder="*****" required>
+                    <input type="text" class="form-control" name="kategori" id="exampleFormControlInput1" placeholder="contoh : makanan" required>
                   </div>
+                  <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status</label>
+                                <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                  <option value="Aktif">Aktif</option>
+                                  <option value="Non-Aktif">Non Aktif</option>
+                                </select>
+                              </div>
                   <button type="submit" class="btn btn-outline-success" onclick="return confirm('Apakah Anda Yakin Ingin Menyimpan Data Ini ?');">Simpan</button>
               <!-- /.card-body -->
             </div>

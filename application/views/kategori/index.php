@@ -32,6 +32,7 @@
                       <tr>
                           <td><?php echo $kategori->idkategori?></td>
                           <td><?php echo $kategori->kategori?></td>
+                          <td><?php echo $kategori->status?></td>
                           <td> 
                           <a href="<?php echo site_url('kategori/edit/'.$kategori->idkategori) ?>"
                            href="#!" class="btn btn-small text-primary"><i class="fas fa-edit"></i> Edit</a>

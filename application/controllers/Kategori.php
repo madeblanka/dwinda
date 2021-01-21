@@ -60,8 +60,9 @@ class Kategori extends CI_Controller {
     }
     public function update(){
 		$idkategori = $this->input->post('idkategori',TRUE);
-		$kategori = $this->input->post('kategori',TRUE);
-		$this->Kategori_model->update($idkategori,$kategori);
+        $kategori = $this->input->post('kategori',TRUE);
+        $status = $this->input->post('status',TRUE);
+		$this->Kategori_model->update($idkategori,$kategori,$status);
         redirect(site_url('kategori/index'));
     }
 }

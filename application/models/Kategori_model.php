@@ -26,6 +26,10 @@ class Kategori_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
+    public function getaktif()
+    {
+        return $this->db->get_where($this->_table, ["status" => 'Aktif'])->result();
+    }
     
     public function getByidkategori($idkategori)
     {
@@ -37,14 +41,16 @@ class Kategori_model extends CI_Model
         $post = $this->input->post();
         $this->idkategori = $post["idkategori"];
         $this->kategori = $post["kategori"];
+        $this->status = $post["status"];
         return $this->db->insert($this->_table, $this);
     }
 
-    public function update($idkategori,$kategori)
+    public function update($idkategori,$kategori,$status)
     {
         $post = $this->input->post();
         $this->idkategori = $post["idkategori"];
         $this->kategori = $post["kategori"];
+        $this->status = $post["status"];
         return $this->db->update($this->_table, $this, array('idkategori' => $post['idkategori']));
     }
 

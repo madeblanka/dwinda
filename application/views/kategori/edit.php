@@ -23,6 +23,7 @@
                     <tr>
                       <th>ID Kategori</th>
                       <th>Kategori</th>
+                      <th>status</th>
                     </tr>
                   </thead>
                   <?php foreach ($kategori as $kategori): ?>
@@ -30,7 +31,12 @@
                       <tr>
                           <td><input type="number" name="idkategori" value="<?php echo $kategori->idkategori?>"  readonly></td>
                           <td><input type="text" name="kategori" value="<?php echo $kategori->kategori?>" required></td>
-                          </td>
+                          <td>
+                                <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                  <option value="Aktif">Aktif</option>
+                                  <option value="Non-Aktif">Non Aktif</option>
+                                </select>
+                            </td>
                           <?php endforeach?>
                       </tr>
                       <tr> <th> <button type="submit" class="btn btn-outline-success" onclick="return confirm('Apakah Anda Yakin Ingin Menyimpan Data Ini ?');">Simpan</button></th></tr>
